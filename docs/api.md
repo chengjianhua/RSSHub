@@ -6,7 +6,7 @@ API 仍处于开发状态中， 并可能会有改动。欢迎提供建议！
 
 RSSHub 提供下列 API:
 
-### 可用公共路由列表
+## 可用公共路由列表
 
 ::: tip 提示
 `protected_router.js`下的路由**不会被**包含在此 API 返回的结果当中.
@@ -35,7 +35,8 @@ RSSHub 提供下列 API:
                 "/bilibili/user/dynamic/:uid",
                 "/bilibili/user/followers/:uid",
                 "/bilibili/user/followings/:uid",
-                "/bilibili/user/channel/:uid/:cid",
+                "/bilibili/user/channel/collections/:uid/:sid",
+                "/bilibili/user/channel/series/:uid/:sid",
                 "/bilibili/partion/:tid",
                 "/bilibili/partion/ranking/:tid/:days?",
                 "/bilibili/bangumi/:seasonid",

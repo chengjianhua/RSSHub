@@ -56,11 +56,69 @@ The following are some of the supported Channel and Topic ids.
 
 </RouteEn>
 
+## Aljazeera
+
+### News
+
+<RouteEn author="nczitzk" example="/aljazeera/english/news" path="/aljazeera/:language?/:category?" :paramsDesc="['Language, see below, arbric by default, as Arbric', 'Category, can be found in URL, homepage by default']">
+
+Language
+
+| Arbric | Chinese | English |
+| ------ | ------- | ------- |
+| arbric | chinese | english |
+
+::: tip Tip
+
+If you subscribe to [Al Jazeera English - Economy](https://www.aljazeera.com/economy), whose language is `english` and whose path is `economy`, you can get the route as [`/aljazeera/english/economy`](https://rsshub.app/aljazeera/english/economy)
+
+If you subscribe to [Al Jazeera Chinese - Political](https://chinese.aljazeera.net/news/political) with language `chinese` and path `news/political`, you can get the route as [`/aljazeera/chinese/news/political`](https://rsshub.app/aljazeera/chinese/news/political)
+
+:::
+
+</RouteEn>
+
+### Tag
+
+<RouteEn author="nczitzk" example="/aljazeera/english/tag/science-and-technology" path="/aljazeera/:language?/tag/:id" :paramsDesc="['Language, see below, arbric by default, as Arbric', 'Tag id, can be found in URL']">
+
+Language
+
+| Arbric | Chinese | English |
+| ------ | ------- | ------- |
+| arbric | chinese | english |
+
+::: tip Tip
+
+If you subscribe to [Al Jazeera English - Science and Technology](https://www.aljazeera.com/tag/science-and-technology), whose language is `english` and whose path is `science-and-technology`, you can get the route as [`/aljazeera/english/tag/science-and-technology`](https://rsshub.app/aljazeera/english/tag/science-and-technology)
+
+:::
+
+</RouteEn>
+
+### Official RSS
+
+<RouteEn author="nczitzk" example="/aljazeera/english/rss" path="/aljazeera/:language?/rss" :paramsDesc="['Language, see below, arbric by default, as Arbric']">
+
+Language
+
+| Arbric | Chinese | English |
+| ------ | ------- | ------- |
+| arbric | chinese | english |
+
+::: tip Tip
+
+There is no RSS source for Al Jazeera Chinese, returning homepage content by default
+
+:::
+
+</RouteEn>
+
 ## AP News
 
 ### Topics
 
-<RouteEn author="zoenglinghou mjysci" example="/apnews/topics/apf-topnews" path="/apnews/topics/:topic" :paramsDesc="['Topic name，can be found in URL. For example: the topic name of AP Top News [https://apnews.com/apf-topnews](https://apnews.com/apf-topnews) is `apf-topnews`']" radar="1" rssbud="1" anticrawler="1" puppeteer="1"/>
+<RouteEn author="zoenglinghou mjysci TonyRL" example="/apnews/topics/apf-topnews" path="/apnews/topics/:topic?" :paramsDesc="['Topic name，can be found in URL. For example: the topic name of AP Top News [https://apnews.com/apf-topnews](https://apnews.com/apf-topnews) is `apf-topnews`, `trending-news` by default']" radar="1" rssbud="1" />
 
 ## BBC
 
@@ -160,6 +218,30 @@ Generates full-text feeds that the official feed doesn't provide.
 
 </RouteEn>
 
+## CNBC
+
+### Full article RSS
+
+<RouteEn author="TonyRL" example="/cnbc/rss" path="/cnbc/rss/:id?" :paramsDesc="['Channel ID, can be found in Official RSS URL, `100003114` (Top News) by default']">
+
+Provides a better reading experience (full articles) over the official ones.
+
+Support all channels, refer to [CNBC RSS feeds](https://www.cnbc.com/rss-feeds/).
+
+</RouteEn>
+
+## Deutsche Welle
+
+### News
+
+<RouteEn author="nczitzk" example="/dw/en" path="/dw/:lang?/:caty?" :paramsDesc="['Language, can be found in the URL of the corresponding language version page, German by default', 'Category, all by default']">
+
+| All  | German Press | Culture | Economy | Science & Nature |
+| ---- | -------- | -------- | -------- | -------- |
+| all  | press    | cul      | eco      | sci      |
+
+</RouteEn>
+
 ## Financial Times
 
 ### myFT personal RSS
@@ -199,6 +281,30 @@ Generates full-text feeds that the official feed doesn't provide.
 
 </RouteEn>
 
+## La Jornada
+
+### News
+
+<RouteEn author="Thealf154" example="/jornada/2022-10-12/capital" path="/jornada/:date?/:category?" :paramsDesc="['Date string, must be in format of `YYYY-MM-DD`. You can get today\'s news using `today`', 'Category, refer to the table below']" radar="1">
+
+Provides a way to get an specific rss feed by date and category over the official one.
+
+| Category               | `:category`|
+|------------------------|------------|
+| Capital                | capital    |
+| Cartones               | cartones   |
+| Ciencia y Tecnología   | ciencia    |
+| Cultura                | cultura    |
+| Deportes               | deportes   |
+| Economía               | economia   |
+| Estados                | estados    |
+| Mundo                  | mundo      |
+| Opinión                | opinion    |
+| Política               | politica   |
+| Sociedad               | sociedad   |
+
+</RouteEn>
+
 ## Ming Pao
 
 ### Ming Pao Daily
@@ -231,6 +337,24 @@ Only `s00017` is in English.
 
 <RouteEn author="Andiedie" example="/nhk/news_web_easy" path="/nhk/news_web_easy"/>
 
+### WORLD-JAPAN - Top Stories
+
+<RouteEn author="TonyRL" example="/nhk/news/en" path="/nhk/news/:lang?" :paramsDesc="['Language, see below, `en` by default']" radar="1" rssbud="1">
+
+| العربية | বাংলা | မြန်မာဘာသာစကား | 中文（简体） | 中文（繁體） | English | Français |
+| ------- | ----- | -------------- | ------ | ------ | ------- | -------- |
+| ar      | bn    | my             | zh     | zt     | en      | fr       |
+
+| हिन्दी | Bahasa Indonesia | 코리언 | فارسی | Português | Русский | Español |
+| ------  | ---------------- | --- | ----- | --------- | ------- | ------- |
+| hi     | id               | ko  | fa    | pt        | ru      | es      |
+
+| Kiswahili | ภาษาไทย | Türkçe | Українська | اردو | Tiếng Việt |
+| --------- | | ------- | ------ | ---------- | ---- | ---------- |
+| sw        | th      | tr     | uk         | ur   | vi         |
+
+</RouteEn>
+
 ## Nikkei Asia
 
 ### Latest News
@@ -249,7 +373,7 @@ Only `s00017` is in English.
 
 <RouteEn author="zphw" example="/rfa/english" path="/rfa/:language?/:channel?/:subChannel?" :paramsDesc="['language, English by default', 'channel', 'subchannel, where applicable']" />
 
-Delivers a better experience by supporting parameter specification. 
+Delivers a better experience by supporting parameter specification.
 
 Parameters can be obtained from the official website, for instance:
 
@@ -307,7 +431,19 @@ More could be found in the URL of the category/topic page.
 
 ### Inverstigates
 
-<RouteEn author="LyleLee" example="/reuters/inverstigates" path="/reuters/inverstigates" />
+<RouteEn author="LyleLee" example="/reuters/investigates" path="/reuters/investigates" />
+
+## Rodong Sinmun
+
+### News
+
+<RouteEn author="TonyRL" example="/rodong/news" path="/rodong/news/:language?" :paramsDesc="['Language, see below, `ko` by default']" radar="1">
+
+| 조선어 | English | 中文 |
+| ---- | ------ | --- |
+| ko   | en     | cn  |
+
+</RouteEn>
 
 ## RTHK
 
@@ -379,7 +515,7 @@ You still can customize `language`, however, it is important to note that not al
 
 </RouteEn>
 
-## SCMP
+## South China Morning Post
 
 ### News
 
@@ -444,6 +580,12 @@ Language
 
 </RouteEn>
 
+## Taiwan News
+
+### Hot News
+
+<RouteEn author="TonyRL" example="/taiwannews/hot" path="/taiwannews/hot/:lang?" :paramsDesc="['Language, `en` or `zh`, `en` by default']" radar="1" rssbud="1"/>
+
 ## The Economist
 
 ### Category
@@ -458,11 +600,15 @@ Language
 
 <RouteEn author="xyqfer" example="/economist/gre-vocabulary" path="/economist/gre-vocabulary" />
 
+### Global Business Review
+
+<Route author="prnake" example="/economist/global-business-review/cn-en" path="/economist/global-business-review/:language?" :paramsDesc="['Language, `en`, `cn`, `tw` are supported, support multiple options, default to cn-en']"  radar="1" rssbud="1"/>
+
 ### Download
 
 <RouteEn author="nczitzk" example="/economist/download" path="/economist/download" >
 
-The download site: http://www.cgx02.xyz/index.php?dir=/te
+The download site: <http://www.cgx02.xyz/index.php?dir=/te>
 
 </RouteEn>
 
@@ -504,22 +650,21 @@ Provides all of the articles by the specified New York Times author.
 
 ### Best Seller Books
 
-
 <RouteEn author="melvinto" example="/nytimes/book/combined-print-and-e-book-nonfiction" path="/nytimes/book/:category?"/>
 
-| Category | 
-| -------- | 
+| Category |
+| -------- |
 | combined-print-and-e-book-nonfiction |
-| hardcover-nonfiction| 
-| paperback-nonfiction| 
-| advice-how-to-and-miscellaneous| 
+| hardcover-nonfiction|
+| paperback-nonfiction|
+| advice-how-to-and-miscellaneous|
 | combined-print-and-e-book-fiction|
 | hardcover-fiction|
-| trade-fiction-paperback| 
-| childrens-middle-grade-hardcover| 
+| trade-fiction-paperback|
+| childrens-middle-grade-hardcover|
 | picture-books|
 | series-books|
-| young-adult-hardcover| 
+| young-adult-hardcover|
 
 ## The Wall Street Journal (WSJ)
 
@@ -531,11 +676,23 @@ Provide full article RSS for WSJ topics.
 
 </RouteEn>
 
+## Voice of Mongolia
+
+### News
+
+<RouteEn author="zphw" example="/vom/featured" path="/vom/featured/:lang?" :paramsDesc="['Language, see the table below, `mn` by default']">
+
+| English | 日本語 | Монгол | Русский | 简体中文 |
+| ------- | --- | ------ | ------- | ---- |
+| en      | ja  | mn     | ru      | zh   |
+
+</RouteEn>
+
 ## Yahoo
 
 ### News
 
-<RouteEn author="KeiLongW" example="/yahoo-news/hk/world" path="/yahoo-news/:region/:category?" :paramsDesc="['Region','Category']">
+<RouteEn author="KeiLongW" example="/yahoo/news/hk/world" path="/yahoo/news/:region/:category?" :paramsDesc="['Region','Category']">
 
 `Region`
 | Hong Kong | Taiwan | US |
@@ -559,7 +716,7 @@ Provides all of the articles by the specified Yahoo! author.
 
 </RouteEn>
 
-## Yomiuri Shimbun 読売新聞 
+## Yomiuri Shimbun 読売新聞
 
 ### News
 
@@ -572,9 +729,3 @@ Free articles only.
 | 　news 　 | national | politics | economy | sports | world | science | election | culture | igoshougi | life | local | editorial | koushitsu |
 
 </RouteEn>
-
-## 公視新聞網
-
-### Daily News
-
-<RouteEn author="nczitzk" example="/pts/dailynews" path="/pts/dailynews"/>
