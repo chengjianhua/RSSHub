@@ -750,6 +750,12 @@ Sources
 
 </Route>
 
+## 偶像荣耀
+
+### 新闻推送
+
+<Route author="Mingxia1" example="/idolypride/news" path="/idolypride/news" radar="1" rssbud="1"/>
+
 ## 三界异次元
 
 ### 三界异次元
