@@ -12,11 +12,11 @@ import Translate from '@docusaurus/Translate';
 
 **Q: RSSHub Radar 是如何工作的？**
 
-**A:** 进入新页面时， RSSHub Radar 先根据页面 link 标签[寻找](https://github.com/DIYgod/RSSHub-Radar/blob/master/src/js/content/utils.js#L25)页面自带 RSS，再根据远程更新的[规则](https://github.com/DIYgod/RSSHub/blob/master/assets/radar-rules.js)寻找适用当前页面和当前网站的 RSSHub 路由；再加一点点魔法。
+**A:** 进入新页面时， RSSHub Radar 先根据页面 link 标签[寻找](https://github.com/DIYgod/RSSHub-Radar/blob/master/src/js/content/utils.ts#L25)页面自带 RSS，再根据远程更新的[规则](https://github.com/DIYgod/RSSHub/blob/master/assets/radar-rules.js)寻找适用当前页面和当前网站的 RSSHub 路由；再加一点点魔法。
 
 **Q: 演示地址可以用么？**
 
-**A:** 演示地址为 [rsshub.app](https://rsshub.app), 缓存时间 120 分钟，可以随意使用。但如果你看到路由有 <Badge vertical="middle" type="warn"><Translate id="badge.anticrawler" /></Badge> 标记，如微博、知乎等，意味着目标网站有严重的反爬策略，demo 无法确保可用性，建议自建来提高稳定性。
+**A:** 演示地址为 [rsshub.app](https://rsshub.app), 缓存时间 120 分钟，可以随意使用。但如果你看到路由有 <Badge vertical="middle" type="caution"><Translate id="badge.anticrawler" /></Badge> 标记，如微博、知乎等，意味着目标网站有严重的反爬策略，demo 无法确保可用性，建议自建来提高稳定性。
 
 **Q: 为什么 RSSHub 里的图片 / 视频加载不出来？**
 

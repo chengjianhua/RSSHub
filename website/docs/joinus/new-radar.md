@@ -4,14 +4,20 @@ sidebar_position: 3
 
 # New RSSHub Radar Rules
 
+:::warning
+
+The following document is the old version standard, please refer [/lib/types.ts#L183](https://github.com/DIYgod/RSSHub/blob/master/lib/types.ts#L183) to the new version standard
+
+:::
+
 If you want to see the results, we suggest you install the browser extension. You can download it for your browser on the [Join Us](/joinus/quick-start#submit-new-rsshub-radar-rules-before-you-start) page.
 
 ## Code the rule
 
-To create a new RSS feed, create a file called `radar.js` under the corresponding namespace in [/lib/v2/](https://github.com/DIYgod/RSSHub/tree/master/lib/v2). We will continue to use the example of creating an RSS feed for `GitHub Repo Issues`, which is described [here](/joinus/new-rss/before-start). The resulting code will look like this:
+To create a new RSS feed, create a file called `radar.ts` under the corresponding namespace in [/lib/routes/](https://github.com/DIYgod/RSSHub/tree/master/lib/routes). We will continue to use the example of creating an RSS feed for `GitHub Repo Issues`, which is described [here](/joinus/new-rss/before-start). The resulting code will look like this:
 
 ```js
-module.exports = {
+export default {
     'github.com': {
         _name: 'GitHub',
         '.': [
@@ -44,7 +50,7 @@ The rest of the inner object keys are the subdomains of a website. If a website 
 <TabItem value="github.com" label="github.com and www.github.com">
 
 ```js
-module.exports = {
+export default {
     'github.com': {
         _name: 'GitHub',
         // highlight-next-line
@@ -64,7 +70,7 @@ module.exports = {
 <TabItem value="abc.github.com" label="abc.github.com">
 
 ```js
-module.exports = {
+export default {
     'github.com': {
         _name: 'GitHub',
         // highlight-next-line
@@ -84,7 +90,7 @@ module.exports = {
 <TabItem value="abc.def.github.com" label="abc.def.github.com">
 
 ```js
-module.exports = {
+export default {
     'github.com': {
         _name: 'GitHub',
         // highlight-next-line
@@ -119,7 +125,7 @@ The source field is *optional* and should specifies the URL path. Leave it blank
 
 The source should be an array of strings. For example, if the source for `GitHub Repo Issues` is `/:user/:repo`, it means that when you visit `https://github.com/DIYgod/RSSHub`, which matches the `github.com/:user/:repo` pattern, the parameters for this URL will be: `{user: 'DIYgod', repo: 'RSSHub'}`. The browser extension uses these parameters to create an RSSHub subscription address based on the `target` field.
 
-:::caution
+:::warning
 
 If the value you want to extract is in the URL search parameters or URL hash, use target as a function instead of the `source` field. Also, remember that the `source` field only matches the URL path and not any other parts of the URL.
 
@@ -149,7 +155,7 @@ Here are two examples of how to use the `target` field as a function:
 <TabItem value="params" label="Match using params">
 
 ```js
-module.exports = {
+export default {
     'github.com': {
         _name: 'GitHub',
         '.': [
@@ -169,7 +175,7 @@ module.exports = {
 <TabItem value="url" label="Match using URL">
 
 ```js
-module.exports = {
+export default {
     'github.com': {
         _name: 'GitHub',
         '.': [
@@ -196,10 +202,6 @@ Both the above examples will return the same RSSHub subscription address as the 
 
 -   Use `'.'` subdomain allows RSSBud to support common mobile domains such as `m` / `mobile`
 -   Use `document` in `target` does not apply to RSSBud: RSSBud is not a browser extension, it only fetches and analyzes the URL of a website, it cannot run JavaScript
-
-### Update the Documentation
-
-As mentioned earlier in [Other components](/joinus/new-rss/add-docs#documentation-examples-other-components), adding `radar="1"` in the RSSHub docs will show a `Support browser extension` badge. If the rule is also compatible with RSSBud, adding `rssbud="1"` will show a `Support RSSBud` badge.
 
 ## Debugging Radar Rules
 

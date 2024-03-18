@@ -8,7 +8,7 @@ If you've found a bug or have a suggestion for improving RSSHub, we'd love to he
 
 ## Join the discussion
 
-[![Telegram Group](https://img.shields.io/badge/chat-telegram-brightgreen.svg?logo=telegram&style=for-the-badge)](https://t.me/rsshub) [![GitHub issues](https://img.shields.io/github/issues/DIYgod/RSSHub?color=bright-green&logo=github&style=for-the-badge)](https://github.com/DIYgod/RSSHub/issues) [![GitHub Discussions](https://img.shields.io/github/discussions/DIYgod/RSSHub?logo=github&style=for-the-badge)](https://github.com/DIYgod/RSSHub/discussions)
+[![Telegram Group](https://img.shields.io/badge/chat-telegram-brightgreen.svg?logo=telegram&style=for-the-badge)](https://t.me/rsshub) [![GitHub issues](https://img.shields.io/github/issues/DIYgod/RSSHub?color=bright-green&logo=github&style=for-the-badge)](https://github.com/DIYgod/RSSHub/issues)
 
 ## Before you begin
 
@@ -20,7 +20,7 @@ If you don't know much about them but would like to learn them, here are some go
 -   [W3Schools](https://www.w3schools.com/)
 -   [Git course on Codecademy](https://www.codecademy.com/learn/learn-git)
 
-If you'd like to see examples of how other developers use these technologies to create RSS feeds, you can take a look at some of the code in [our repository](https://github.com/DIYgod/RSSHub/tree/master/lib/v2).
+If you'd like to see examples of how other developers use these technologies to create RSS feeds, you can take a look at some of the code in [our repository](https://github.com/DIYgod/RSSHub/tree/master/lib/routes).
 
 ## Submit new RSSHub rules
 

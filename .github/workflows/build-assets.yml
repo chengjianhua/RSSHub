@@ -1,34 +1,44 @@
-name: build assets
+name: Build assets
 
 on:
   push:
     branches:
       - master
     paths:
-      - 'lib/**'
-      - 'scripts/workflow/*.js'
+      - 'lib/**/*.ts'
+
+permissions:
+  contents: read
 
 jobs:
   build:
     runs-on: ubuntu-latest
     name: Build assets
     timeout-minutes: 5
+    permissions:
+      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Install pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v3
         with:
           version: 8
       - name: Use Node.js Active LTS
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: lts/*
           cache: 'pnpm'
       - name: Install dependencies (yarn)
         run: pnpm i
       - name: Build assets
-        run: npm run build:all
+        run: npm run build
+      - name: Commit files
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git status
+          git diff-index --quiet HEAD || (git commit -m "chore: auto build" -a --no-verify && git push "https://${GITHUB_ACTOR}:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git" HEAD:master)
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:

@@ -8,7 +8,7 @@ sidebar_position: 1
 
 ## 参与讨论
 
-[![Telegram 群组](https://img.shields.io/badge/chat-telegram-brightgreen.svg?logo=telegram&style=for-the-badge)](https://t.me/rsshub) [![GitHub Issues](https://img.shields.io/github/issues/DIYgod/RSSHub?color=bright-green&logo=github&style=for-the-badge)](https://github.com/DIYgod/RSSHub/issues) [![GitHub 讨论](https://img.shields.io/github/discussions/DIYgod/RSSHub?logo=github&style=for-the-badge)](https://github.com/DIYgod/RSSHub/discussions)
+[![Telegram 群组](https://img.shields.io/badge/chat-telegram-brightgreen.svg?logo=telegram&style=for-the-badge)](https://t.me/rsshub) [![GitHub Issues](https://img.shields.io/github/issues/DIYgod/RSSHub?color=bright-green&logo=github&style=for-the-badge)](https://github.com/DIYgod/RSSHub/issues)
 
 ## 开始之前
 
@@ -20,7 +20,7 @@ sidebar_position: 1
 -   [W3Schools](https://www.w3schools.com)
 -   [Codecademy 上的 Git 课程](https://www.codecademy.com/learn/learn-git)
 
-如果您想查看其他开发人员如何使用这些技术来制作 RSS 订阅的示例，您可以查看 [我们的代码库](https://github.com/DIYgod/RSSHub/tree/master/lib/v2) 中的一些代码。
+如果您想查看其他开发人员如何使用这些技术来制作 RSS 订阅的示例，您可以查看 [我们的代码库](https://github.com/DIYgod/RSSHub/tree/master/lib/routes) 中的一些代码。
 
 ## 提交新的 RSSHub 规则
 
@@ -46,7 +46,7 @@ sidebar_position: 1
 
 [开始吧！](/zh/joinus/new-radar)
 
-<Link to="https://chrome.google.com/webstore/detail/rsshub-radar/kefjpfngnndepjbopdmoebkipbgkggaa" target="_blank" rel="noopener noreferrer"><img src="https://storage.googleapis.com/web-dev-uploads/image/WlD8wC6g8khYWPJUsQceQkhXSlv1/UV4C4ybeBTsZt43U4xis.png" alt="为 Chromium 安装 RSSHub Radar" style={{height: "58px"}} /></Link>
-<Link to="https://addons.mozilla.org/firefox/addon/rsshub-radar/" target="_blank" rel="noopener noreferrer"><img src="https://blog.mozilla.org/addons/files/2020/04/get-the-addon-fx-apr-2020.svg" alt="为 Firefox 安装 RSSHub Radar for " style={{height: "58px"}} /></Link>
-<Link to="https://microsoftedge.microsoft.com/addons/detail/rsshub-radar/gangkeiaobmjcjokiofpkfpcobpbmnln" target="_blank" rel="noopener noreferrer"><img src="https://wsrv.nl/?url=https://upload.wikimedia.org/wikipedia/commons/f/f7/Get_it_from_Microsoft_Badge.svg" alt="为 Edge 安装 RSSHub Radar" style={{height: "58px"}} /></Link>
-<Link to="https://apps.apple.com/us/app/rsshub-radar/id1610744717" target="_blank" rel="noopener noreferrer"><img src="https://developer.apple.com/news/images/download-on-the-app-store-badge.png" alt="为 Safari 安装 RSSHub Radar" style={{height: "58px"}} /></Link>
+<Link to="https://chrome.google.com/webstore/detail/rsshub-radar/kefjpfngnndepjbopdmoebkipbgkggaa" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="https://storage.googleapis.com/web-dev-uploads/image/WlD8wC6g8khYWPJUsQceQkhXSlv1/UV4C4ybeBTsZt43U4xis.png" alt="为 Chromium 安装 RSSHub Radar" style={{height: "58px"}} /></Link>
+<Link to="https://addons.mozilla.org/firefox/addon/rsshub-radar/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="https://blog.mozilla.org/addons/files/2020/04/get-the-addon-fx-apr-2020.svg" alt="为 Firefox 安装 RSSHub Radar for " style={{height: "58px"}} /></Link>
+<Link to="https://microsoftedge.microsoft.com/addons/detail/rsshub-radar/gangkeiaobmjcjokiofpkfpcobpbmnln" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="https://wsrv.nl/?url=https://upload.wikimedia.org/wikipedia/commons/f/f7/Get_it_from_Microsoft_Badge.svg" alt="为 Edge 安装 RSSHub Radar" style={{height: "58px"}} /></Link>
+<Link to="https://apps.apple.com/us/app/rsshub-radar/id1610744717" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="https://developer.apple.com/news/images/download-on-the-app-store-badge.png" alt="为 Safari 安装 RSSHub Radar" style={{height: "58px"}} /></Link>
