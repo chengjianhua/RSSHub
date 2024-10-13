@@ -1,6 +1,6 @@
-import 'dotenv/config';
 import randUserAgent from '@/utils/rand-user-agent';
-import got from 'got';
+import 'dotenv/config';
+import { ofetch } from 'ofetch';
 
 let envs = process.env;
 
@@ -39,14 +39,18 @@ export type Config = {
         port?: string;
         auth?: string;
         url_regex: string;
+        strategy: 'on_retry' | 'all';
     };
-    proxyStrategy: string;
     pacUri?: string;
     pacScript?: string;
     accessKey?: string;
     debugInfo: string;
     loggerLevel: string;
     noLogfiles?: boolean;
+    otel: {
+        seconds_bucket?: string;
+        milliseconds_bucket?: string;
+    };
     showLoggerTimestamp?: boolean;
     sentry: {
         dsn?: string;
@@ -70,7 +74,9 @@ export type Config = {
         temperature?: number;
         maxTokens?: number;
         endpoint: string;
-        prompt?: string;
+        inputOption: string;
+        promptTitle: string;
+        promptDescription: string;
     };
     bilibili: {
         cookies: Record<string, string | undefined>;
@@ -154,7 +160,6 @@ export type Config = {
         username?: string;
         password?: string;
         bearertoken?: string;
-        iap_receipt?: string;
     };
     instagram: {
         username?: string;
@@ -166,11 +171,27 @@ export type Config = {
         username?: string;
         password?: string;
     };
+    javdb: {
+        session?: string;
+    };
+    keylol: {
+        cookie?: string;
+    };
     lastfm: {
         api_key?: string;
     };
     lightnovel: {
         cookie?: string;
+    };
+    lorientlejour: {
+        token?: string;
+        username?: string;
+        password?: string;
+    };
+    malaysiakini: {
+        email?: string;
+        password?: string;
+        refreshToken?: string;
     };
     manhuagui: {
         cookie?: string;
@@ -190,6 +211,9 @@ export type Config = {
     miniflux: {
         instance?: string;
         token?: string;
+    };
+    mox: {
+        cookie: string;
     };
     ncm: {
         cookies?: string;
@@ -224,6 +248,12 @@ export type Config = {
     pkubbs: {
         cookie?: string;
     };
+    qingting: {
+        id?: string;
+    };
+    readwise: {
+        accessToken?: string;
+    };
     saraba1st: {
         cookie?: string;
     };
@@ -241,17 +271,27 @@ export type Config = {
         clientSecret?: string;
         refreshToken?: string;
     };
+    sspai: {
+        bearertoken?: string;
+    };
     telegram: {
         token?: string;
     };
     tophub: {
         cookie?: string;
     };
+    tsdm39: {
+        cookie: string;
+    };
     twitter: {
-        oauthTokens?: string[];
-        oauthTokenSecrets?: string[];
-        username?: string;
-        password?: string;
+        username?: string[];
+        password?: string[];
+        authenticationSecret?: string[];
+        authToken?: string[];
+    };
+    uestc: {
+        bbsCookie?: string;
+        bbsAuthStr?: string;
     };
     weibo: {
         app_key?: string;
@@ -272,6 +312,17 @@ export type Config = {
     ximalaya: {
         token?: string;
     };
+    xsijishe: {
+        cookie?: string;
+        userAgent?: string;
+    };
+    xueqiu: {
+        cookies?: string;
+    };
+    yamibo: {
+        salt?: string;
+        auth?: string;
+    };
     youtube: {
         key?: string;
         clientId?: string;
@@ -283,6 +334,9 @@ export type Config = {
     };
     zodgame: {
         cookie?: string;
+    };
+    zsxq: {
+        accessToken?: string;
     };
 };
 
@@ -347,7 +401,7 @@ const calculateValue = () => {
         allowOrigin: envs.ALLOW_ORIGIN,
         // cache
         cache: {
-            type: envs.CACHE_TYPE || 'memory', // 缓存类型，支持 'memory' 和 'redis'，设为空可以禁止缓存
+            type: envs.CACHE_TYPE || (envs.CACHE_TYPE === '' ? '' : 'memory'), // 缓存类型，支持 'memory' 和 'redis'，设为空可以禁止缓存
             requestTimeout: toInt(envs.CACHE_REQUEST_TIMEOUT, 60),
             routeExpire: toInt(envs.CACHE_EXPIRE, 5 * 60), // 路由缓存时间，单位为秒
             contentExpire: toInt(envs.CACHE_CONTENT_EXPIRE, 1 * 60 * 60), // 不变内容缓存时间，单位为秒
@@ -367,8 +421,8 @@ const calculateValue = () => {
             port: envs.PROXY_PORT,
             auth: envs.PROXY_AUTH,
             url_regex: envs.PROXY_URL_REGEX || '.*',
+            strategy: envs.PROXY_STRATEGY || 'all', // all / on_retry
         },
-        proxyStrategy: envs.PROXY_STRATEGY || 'all', // all / on_retry
         pacUri: envs.PAC_URI,
         pacScript: envs.PAC_SCRIPT,
         // access control
@@ -378,6 +432,10 @@ const calculateValue = () => {
         debugInfo: envs.DEBUG_INFO || 'true',
         loggerLevel: envs.LOGGER_LEVEL || 'info',
         noLogfiles: toBoolean(envs.NO_LOGFILES, false),
+        otel: {
+            seconds_bucket: envs.OTEL_SECONDS_BUCKET || '0.01,0.1,1,2,5,15,30,60',
+            milliseconds_bucket: envs.OTEL_MILLISECONDS_BUCKET || '10,20,50,100,250,500,1000,5000,15000',
+        },
         showLoggerTimestamp: toBoolean(envs.SHOW_LOGGER_TIMESTAMP, false),
         sentry: {
             dsn: envs.SENTRY,
@@ -402,7 +460,9 @@ const calculateValue = () => {
             temperature: toInt(envs.OPENAI_TEMPERATURE, 0.2),
             maxTokens: toInt(envs.OPENAI_MAX_TOKENS, 0) || undefined,
             endpoint: envs.OPENAI_API_ENDPOINT || 'https://api.openai.com/v1',
-            prompt: envs.OPENAI_PROMPT || 'Please summarize the following article and reply with markdown format.',
+            inputOption: envs.OPENAI_INPUT_OPTION || 'description',
+            promptDescription: envs.OPENAI_PROMPT || 'Please summarize the following article and reply with markdown format.',
+            promptTitle: envs.OPENAI_PROMPT_TITLE || 'Please translate the following title into Simplified Chinese and reply only translated text.',
         },
 
         // Route-specific Configurations
@@ -489,7 +549,6 @@ const calculateValue = () => {
             username: envs.INITIUM_USERNAME,
             password: envs.INITIUM_PASSWORD,
             bearertoken: envs.INITIUM_BEARER_TOKEN,
-            iap_receipt: envs.INITIUM_IAP_RECEIPT,
         },
         instagram: {
             username: envs.IG_USERNAME,
@@ -501,11 +560,27 @@ const calculateValue = () => {
             username: envs.IWARA_USERNAME,
             password: envs.IWARA_PASSWORD,
         },
+        javdb: {
+            session: envs.JAVDB_SESSION,
+        },
+        keylol: {
+            cookie: envs.KEYLOL_COOKIE,
+        },
         lastfm: {
             api_key: envs.LASTFM_API_KEY,
         },
         lightnovel: {
             cookie: envs.SECURITY_KEY,
+        },
+        lorientlejour: {
+            token: envs.LORIENTLEJOUR_TOKEN,
+            username: envs.LORIENTLEJOUR_USERNAME,
+            password: envs.LORIENTLEJOUR_PASSWORD,
+        },
+        malaysiakini: {
+            email: envs.MALAYSIAKINI_EMAIL,
+            password: envs.MALAYSIAKINI_PASSWORD,
+            refreshToken: envs.MALAYSIAKINI_REFRESHTOKEN,
         },
         manhuagui: {
             cookie: envs.MHGUI_COOKIE,
@@ -525,6 +600,9 @@ const calculateValue = () => {
         miniflux: {
             instance: envs.MINIFLUX_INSTANCE || 'https://reader.miniflux.app',
             token: envs.MINIFLUX_TOKEN || '',
+        },
+        mox: {
+            cookie: envs.MOX_COOKIE,
         },
         ncm: {
             cookies: envs.NCM_COOKIES || '',
@@ -559,6 +637,12 @@ const calculateValue = () => {
         pkubbs: {
             cookie: envs.PKUBBS_COOKIE,
         },
+        qingting: {
+            id: envs.QINGTING_ID,
+        },
+        readwise: {
+            accessToken: envs.READWISE_ACCESS_TOKEN,
+        },
         saraba1st: {
             cookie: envs.SARABA1ST_COOKIE,
         },
@@ -576,6 +660,9 @@ const calculateValue = () => {
             clientSecret: envs.SPOTIFY_CLIENT_SECRET,
             refreshToken: envs.SPOTIFY_REFRESHTOKEN,
         },
+        sspai: {
+            bearertoken: envs.SSPAI_BEARERTOKEN,
+        },
         telegram: {
             token: envs.TELEGRAM_TOKEN,
             session: envs.TELEGRAM_SESSION,
@@ -586,12 +673,18 @@ const calculateValue = () => {
         tophub: {
             cookie: envs.TOPHUB_COOKIE,
         },
+        tsdm39: {
+            cookie: envs.TSDM39_COOKIES,
+        },
         twitter: {
-            oauthTokens: envs.TWITTER_OAUTH_TOKEN?.split(','),
-            oauthTokenSecrets: envs.TWITTER_OAUTH_TOKEN_SECRET?.split(','),
-            username: envs.TWITTER_USERNAME,
-            password: envs.TWITTER_PASSWORD,
-            authenticationSecret: envs.TWITTER_AUTHENTICATION_SECRET,
+            username: envs.TWITTER_USERNAME?.split(','),
+            password: envs.TWITTER_PASSWORD?.split(','),
+            authenticationSecret: envs.TWITTER_AUTHENTICATION_SECRET?.split(','),
+            authToken: envs.TWITTER_AUTH_TOKEN?.split(','),
+        },
+        uestc: {
+            bbsCookie: envs.UESTC_BBS_COOKIE,
+            bbsAuthStr: envs.UESTC_BBS_AUTH_STR,
         },
         weibo: {
             app_key: envs.WEIBO_APP_KEY,
@@ -612,6 +705,17 @@ const calculateValue = () => {
         ximalaya: {
             token: envs.XIMALAYA_TOKEN,
         },
+        xsijishe: {
+            cookie: envs.XSIJISHE_COOKIE,
+            user_agent: envs.XSIJISHE_USER_AGENT,
+        },
+        xueqiu: {
+            cookies: envs.XUEQIU_COOKIES,
+        },
+        yamibo: {
+            salt: envs.YAMIBO_SALT,
+            auth: envs.YAMIBO_AUTH,
+        },
         youtube: {
             key: envs.YOUTUBE_KEY,
             clientId: envs.YOUTUBE_CLIENT_ID,
@@ -624,6 +728,9 @@ const calculateValue = () => {
         zodgame: {
             cookie: envs.ZODGAME_COOKIE,
         },
+        zsxq: {
+            accessToken: envs.ZSXQ_ACCESS_TOKEN,
+        },
     };
 
     for (const name in _value) {
@@ -632,22 +739,27 @@ const calculateValue = () => {
 };
 calculateValue();
 
-if (envs.REMOTE_CONFIG) {
-    got.get(envs.REMOTE_CONFIG)
-        .then(async (response) => {
-            const data = JSON.parse(response.body);
+(async () => {
+    if (envs.REMOTE_CONFIG) {
+        const { default: logger } = await import('@/utils/logger');
+        try {
+            const data = await ofetch(envs.REMOTE_CONFIG, {
+                headers: {
+                    Authorization: `Basic ${envs.REMOTE_CONFIG_AUTH}`,
+                },
+            });
             if (data) {
                 envs = Object.assign(envs, data);
                 calculateValue();
-                const { default: logger } = await import('@/utils/logger');
                 logger.info('Remote config loaded.');
+            } else {
+                logger.error('Remote config load failed.');
             }
-        })
-        .catch(async (error) => {
-            const { default: logger } = await import('@/utils/logger');
+        } catch (error) {
             logger.error('Remote config load failed.', error);
-        });
-}
+        }
+    }
+})();
 
 // @ts-expect-error value is set
 export const config: Config = value;

@@ -32,7 +32,7 @@ async function loadContent(link) {
         response = await got.get(link);
     } catch (error) {
         // 如果网络问题 直接出错
-        if (error.name && (error.name === 'HTTPError' || error.name === 'RequestError')) {
+        if (error.name && (error.name === 'HTTPError' || error.name === 'RequestError' || error.name === 'FetchError')) {
             description = 'Page 404 Please Check!';
         }
         return { description };
@@ -111,7 +111,7 @@ async function handler(ctx) {
                 };
 
                 // 对于列表的每一项, 单独获取 时间与详细内容
-                // eslint-disable-next-line no-return-await
+
                 const other = await cache.tryGet($item_url, () => loadContent($item_url));
                 // 合并解析后的结果集作为该篇文章最终的输出结果
                 return { ...single, ...other };

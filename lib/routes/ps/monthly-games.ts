@@ -1,15 +1,16 @@
-import { Route } from '@/types';
+import { Route, ViewType } from '@/types';
 import { getCurrentPath } from '@/utils/helpers';
 const __dirname = getCurrentPath(import.meta.url);
 
 import got from '@/utils/got';
 import { load } from 'cheerio';
-import * as path from 'node:path';
+import path from 'node:path';
 import { art } from '@/utils/render';
 
 export const route: Route = {
     path: '/monthly-games',
-    categories: ['game'],
+    categories: ['game', 'popular'],
+    view: ViewType.Notifications,
     example: '/ps/monthly-games',
     parameters: {},
     features: {

@@ -1,7 +1,9 @@
+import InvalidParameterError from '@/errors/types/invalid-parameter';
 import { Route } from '@/types';
 import cache from '@/utils/cache';
 import got from '@/utils/got';
 import { load } from 'cheerio';
+import { config } from '@/config';
 const baseUrl = 'https://xsijishe.com';
 
 export const route: Route = {
@@ -10,7 +12,16 @@ export const route: Route = {
     example: '/xsijishe/rank/weekly',
     parameters: { type: '排行榜类型: weekly | monthly' },
     features: {
-        requireConfig: false,
+        requireConfig: [
+            {
+                name: 'XSIJISHE_COOKIE',
+                description: '',
+            },
+            {
+                name: 'XSIJISHE_USER_AGENT',
+                description: '',
+            },
+        ],
         requirePuppeteer: false,
         antiCrawler: false,
         supportBT: false,
@@ -33,10 +44,18 @@ async function handler(ctx) {
         title = '司机社综合月排行榜';
         rankId = 'nex_recons_demens1';
     } else {
-        throw new Error('Invalid rank type');
+        throw new InvalidParameterError('Invalid rank type');
     }
     const url = `${baseUrl}/portal.php`;
-    const resp = await got(url);
+    const headers = {
+        'Accept-Encoding': 'gzip, deflate, br',
+        'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8',
+        Cookie: config.xsijishe.cookie,
+        'User-Agent': config.xsijishe.user_agent,
+    };
+    const resp = await got(url, {
+        headers,
+    });
     const $ = load(resp.data);
     let items = $(`#${rankId} dd`)
         .toArray()
@@ -52,7 +71,9 @@ async function handler(ctx) {
     items = await Promise.all(
         items.map((item) =>
             cache.tryGet(item.link, async () => {
-                const resp = await got(item.link);
+                const resp = await got(item.link, {
+                    headers,
+                });
                 const $ = load(resp.data);
                 const firstViewBox = $('.t_f').first();
 

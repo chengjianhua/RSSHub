@@ -7,7 +7,7 @@ import got from '@/utils/got';
 import { load } from 'cheerio';
 import { parseDate } from '@/utils/parse-date';
 import { art } from '@/utils/render';
-import * as path from 'node:path';
+import path from 'node:path';
 import locations from './locations';
 
 export const route: Route = {
@@ -219,7 +219,8 @@ async function handler(ctx) {
                 queries.subCate = '809824';
                 queries.recommendLevel = '2';
                 break;
-            case 'editor' || 'edit':
+            case 'editor':
+            case 'edit':
                 queries.recommendLevel = '2';
                 break;
             default:

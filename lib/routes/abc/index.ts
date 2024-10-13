@@ -7,7 +7,7 @@ import got from '@/utils/got';
 import { load } from 'cheerio';
 import { parseDate } from '@/utils/parse-date';
 import { art } from '@/utils/render';
-import * as path from 'node:path';
+import path from 'node:path';
 
 export const route: Route = {
     path: '/:category{.+}?',
@@ -22,13 +22,14 @@ export const route: Route = {
     },
     name: 'Channel & Topic',
     categories: ['traditional-media'],
-    description: `:::tip
-    All Topics in [Topic Library](https://abc.net.au/news/topics) are supported, you can fill in the field after \`topic\` in its URL, or fill in the \`documentId\`.
+    description: `
+  :::tip
+  All Topics in [Topic Library](https://abc.net.au/news/topics) are supported, you can fill in the field after \`topic\` in its URL, or fill in the \`documentId\`.
 
-    For example, the URL for [Computer Science](https://www.abc.net.au/news/topic/computer-science) is \`https://www.abc.net.au/news/topic/computer-science\`, the \`category\` is \`news/topic/computer-science\`, and the \`documentId\` of the Topic is \`2302\`, so the route is [/abc/news/topic/computer-science](https://rsshub.app/abc/news/topic/computer-science) and [/abc/2302](https://rsshub.app/abc/2302).
+  For example, the URL for [Computer Science](https://www.abc.net.au/news/topic/computer-science) is \`https://www.abc.net.au/news/topic/computer-science\`, the \`category\` is \`news/topic/computer-science\`, and the \`documentId\` of the Topic is \`2302\`, so the route is [/abc/news/topic/computer-science](https://rsshub.app/abc/news/topic/computer-science) and [/abc/2302](https://rsshub.app/abc/2302).
 
-    The supported channels are all listed in the table below. For other channels, please find the \`documentId\` in the source code of the channel page and fill it in as above.
-    :::`,
+  The supported channels are all listed in the table below. For other channels, please find the \`documentId\` in the source code of the channel page and fill it in as above.
+  :::`,
     maintainers: ['nczitzk'],
     handler,
 };
@@ -81,8 +82,8 @@ async function handler(ctx) {
             }),
             author: i.newsBylineProps?.authors?.map((a) => a.name).join('/') ?? undefined,
             guid: `abc-${i.id}`,
-            pubDate: parseDate(i.timestamp.dates.firstPublished),
-            updated: i.timestamp.dates.lastUpdated ? parseDate(i.timestamp.dates.lastUpdated) : undefined,
+            pubDate: parseDate(i.dates.firstPublished),
+            updated: i.dates.lastUpdated ? parseDate(i.dates.lastUpdated) : undefined,
         };
 
         if (i.mediaIndicator) {
@@ -125,7 +126,7 @@ async function handler(ctx) {
                     item.title = content('meta[property="og:title"]').prop('content');
                     item.description = '';
 
-                    const enclosurePattern = '"(?:MIME|content)?Type":"([\\w]+/[\\w]+)".*?"(?:fileS|s)?ize":(\\d+),.*?"url":"([\\w-.:/?]+)"';
+                    const enclosurePattern = String.raw`"(?:MIME|content)?Type":"([\w]+/[\w]+)".*?"(?:fileS|s)?ize":(\d+),.*?"url":"([\w-.:/?]+)"`;
 
                     const enclosureMatches = detailResponse.match(new RegExp(enclosurePattern, 'g'));
 

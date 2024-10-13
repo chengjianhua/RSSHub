@@ -15,22 +15,22 @@ export const route: Route = {
     features: {
         requireConfig: false,
         requirePuppeteer: false,
-        antiCrawler: false,
+        antiCrawler: true,
         supportBT: false,
         supportPodcast: false,
         supportScihub: false,
     },
     radar: [
         {
-            source: ['jsjxy.stbu.edu.cn/news', 'jsjxy.stbu.edu.cn/'],
+            source: ['jsjxy.stbu.edu.cn/news', 'jsjxy.stbu.edu.cn', 'stbu.edu.cn'],
         },
     ],
-    name: '计算机学院通知公告',
+    name: '计算机学院 - 通知公告',
     maintainers: ['HyperCherry'],
     handler,
     url: 'jsjxy.stbu.edu.cn/news',
     description: `:::warning
-计算机学院通知公告疑似禁止了非大陆 IP 访问，使用路由需要自行 [部署](https://docs.rsshub.app/install)。
+计算机学院通知公告疑似禁止了非大陆 IP 访问，使用路由需要自行 [部署](https://docs.rsshub.app/deploy/)。
 :::`,
 };
 

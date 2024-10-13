@@ -1,4 +1,4 @@
-import { Route } from '@/types';
+import { Route, ViewType } from '@/types';
 import { getCurrentPath } from '@/utils/helpers';
 const __dirname = getCurrentPath(import.meta.url);
 
@@ -6,11 +6,12 @@ import cache from '@/utils/cache';
 import got from '@/utils/got';
 import { load } from 'cheerio';
 import { art } from '@/utils/render';
-import * as path from 'node:path';
+import path from 'node:path';
 
 export const route: Route = {
     path: '/latest',
-    categories: ['traditional-media'],
+    categories: ['traditional-media', 'popular'],
+    view: ViewType.Articles,
     example: '/caixin/latest',
     parameters: {},
     features: {
@@ -34,9 +35,9 @@ export const route: Route = {
 };
 
 async function handler() {
-    const { data } = await got('https://gateway.caixin.com/api/dataplatform/scroll/index').json();
+    const { data } = await got('https://gateway.caixin.com/api/dataplatform/scroll/index');
 
-    const list = data.articleList
+    const list = data.data.articleList
         .map((e) => ({
             title: e.title,
             link: e.url,

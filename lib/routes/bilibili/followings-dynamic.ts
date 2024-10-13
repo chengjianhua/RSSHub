@@ -6,6 +6,7 @@ import utils from './utils';
 import JSONbig from 'json-bigint';
 import { fallback, queryToBoolean } from '@/utils/readable-social';
 import querystring from 'querystring';
+import ConfigNotFoundError from '@/errors/types/config-not-found';
 
 export const route: Route = {
     path: '/followings/dynamic/:uid/:routeParams?',
@@ -46,10 +47,9 @@ async function handler(ctx) {
     const displayArticle = fallback(undefined, queryToBoolean(routeParams.displayArticle), false);
 
     const name = await cache.getUsernameFromUID(uid);
-
     const cookie = config.bilibili.cookies[uid];
     if (cookie === undefined) {
-        throw new Error('缺少对应 uid 的 Bilibili 用户登录后的 Cookie 值');
+        throw new ConfigNotFoundError('缺少对应 uid 的 Bilibili 用户登录后的 Cookie 值');
     }
 
     const response = await got({
@@ -61,7 +61,10 @@ async function handler(ctx) {
         },
     });
     if (response.data.code === -6) {
-        throw new Error('对应 uid 的 Bilibili 用户的 Cookie 已过期');
+        throw new ConfigNotFoundError('对应 uid 的 Bilibili 用户的 Cookie 已过期');
+    }
+    if (response.data.code === 4_100_000) {
+        throw new ConfigNotFoundError('对应 uid 的 Bilibili 用户 请求失败');
     }
     const data = JSONbig.parse(response.body).data.cards;
 
@@ -107,7 +110,9 @@ async function handler(ctx) {
         data.map(async (item) => {
             const parsed = JSONbig.parse(item.card);
             const data = parsed.apiSeasonInfo || (getTitle(parsed.item) ? parsed.item : parsed);
-            const origin = parsed.origin ? JSONbig.parse(parsed.origin) : null;
+            // parsed.origin is already parsed, and it may be json or string.
+            // Don't parse it again, or it will cause an error.
+            const origin = parsed.origin || null;
 
             // img
             let imgHTML = '';

@@ -1,15 +1,16 @@
-import { Route } from '@/types';
+import { Route, ViewType } from '@/types';
 import { getCurrentPath } from '@/utils/helpers';
 const __dirname = getCurrentPath(import.meta.url);
 
 import got from '@/utils/got';
 import { parseDate } from '@/utils/parse-date';
 import { art } from '@/utils/render';
-import * as path from 'node:path';
+import path from 'node:path';
 
 export const route: Route = {
     path: '/user/:username/:cat?',
-    categories: ['social-media'],
+    categories: ['social-media', 'popular'],
+    view: ViewType.Videos,
     example: '/vimeo/user/filmsupply/picks',
     parameters: {
         username: 'In this example [https://vimeo.com/filmsupply](https://vimeo.com/filmsupply)  is `filmsupply`',
