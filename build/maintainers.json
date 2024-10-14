@@ -327,6 +327,12 @@
   "/ahjzu/news": [
     "Yuk-0v0"
   ],
+  "/aibase/discover/:id?": [
+    "nczitzk"
+  ],
+  "/aibase/topic/:id?/:filter?": [
+    "nczitzk"
+  ],
   "/aicaijing/:category?/:id?": [],
   "/aiea/seminars/:period": [
     "zxx-457"
@@ -1719,13 +1725,13 @@
   "/dlsite/campaign/:type/:free?": [
     "cssxsh"
   ],
-  "/dlsite*": [],
   "/dlsite/new/:type": [
     "cssxsh"
   ],
   "/dlsite/ci-en/:id/article": [
     "nczitzk"
   ],
+  "/dlsite*": [],
   "/dmzj/news/:category?": [
     "vzz64"
   ],
@@ -2451,6 +2457,9 @@
     "TonyRL"
   ],
   "/globallawreview/": [
+    "nczitzk"
+  ],
+  "/gmcmonline/chinacustoms": [
     "nczitzk"
   ],
   "/go/mhlw/pdf/:category{.+}?": [
@@ -3393,6 +3402,9 @@
   ],
   "/ipsw/index/:ptype/:pname": [
     "Jeason0228"
+  ],
+  "/ipsw.dev/index/:productID": [
+    "RieN7"
   ],
   "/iqilu/v/:category{.+}?": [],
   "/iqiyi/album/:id": [
@@ -5360,7 +5372,8 @@
     "DIYgod"
   ],
   "/rsshub/transform/html/:url/:routeParams": [
-    "ttttmr"
+    "ttttmr",
+    "hyoban"
   ],
   "/rsshub/transform/json/:url/:routeParams": [
     "ttttmr"
@@ -5758,6 +5771,24 @@
   ],
   "/sjtu/yzb/zkxx/:type": [
     "stdrc"
+  ],
+  "/skeb/following_creators/:username": [
+    "SnowAgar25"
+  ],
+  "/skeb/following_works/:username": [
+    "SnowAgar25"
+  ],
+  "/skeb/friend_works/:username": [
+    "SnowAgar25"
+  ],
+  "/skeb/:category": [
+    "SnowAgar25"
+  ],
+  "/skeb/search/:keyword": [
+    "SnowAgar25"
+  ],
+  "/skeb/works/:username": [
+    "SnowAgar25"
   ],
   "/sketis/isabelle-dev/blog/:blog": [
     "Ritsuka314"
@@ -6533,7 +6564,7 @@
     "truobel",
     "mobyw"
   ],
-  "/uestc/gr": [
+  "/uestc/gr/:type?": [
     "huyyi",
     "mobyw"
   ],
