@@ -770,7 +770,8 @@
   ],
   "/bilibili/user/video-all/:uid/:disableEmbed?": [],
   "/bilibili/user/video/:uid/:disableEmbed?": [
-    "DIYgod"
+    "DIYgod",
+    "Konano"
   ],
   "/bilibili/vsearch/:kw/:order?/:disableEmbed?/:tid?": [
     "pcrtool",
@@ -1289,6 +1290,9 @@
   "/ciidbnu/:id?": [
     "nczitzk"
   ],
+  "/cisia/:id?": [
+    "nczitzk"
+  ],
   "/civitai/discussions/:modelId": [
     "DIYgod"
   ],
@@ -1297,6 +1301,9 @@
   ],
   "/ciweimao/chapter/:id": [
     "keocheung"
+  ],
+  "/cjlu/yjsy/:cate": [
+    "chrisis58"
   ],
   "/clickme/:site/:grouping/:name": [
     "hoilc"
@@ -1576,7 +1583,8 @@
     "TonyRL"
   ],
   "/damai/activity/:city/:category/:subcategory/:keyword?": [
-    "hoilc"
+    "hoilc",
+    "Konano"
   ],
   "/dangdang/notice/:type?": [
     "353325487"
@@ -3010,6 +3018,12 @@
     "TonyRL",
     "Mas0n"
   ],
+  "/hfut/hf/notice/:type?": [
+    "batemax"
+  ],
+  "/hfut/xc/notice/:type?": [
+    "batemax"
+  ],
   "/hicairo/": [
     "cnkmmk"
   ],
@@ -3062,6 +3076,12 @@
   ],
   "/hkjunkcall/": [
     "nczitzk"
+  ],
+  "/hko/earthquake": [
+    "after9"
+  ],
+  "/hko/weather": [
+    "calpa"
   ],
   "/hljucm/yjsy/:category?": [
     "nczitzk"
@@ -4940,10 +4960,11 @@
     "TonyRL",
     "micheal-death"
   ],
-  "/picuki/profile/:id/:functionalFlag?": [
+  "/picuki/profile/:id/:type?/:functionalFlag?": [
     "hoilc",
     "Rongronggg9",
-    "devinmugen"
+    "devinmugen",
+    "NekoAria"
   ],
   "/pikabu/:type/:name": [],
   "/pikabu/user/:name": [
@@ -6859,7 +6880,8 @@
   "/weibo/user/:uid/:routeParams?": [
     "DIYgod",
     "iplusx",
-    "Rongronggg9"
+    "Rongronggg9",
+    "Konano"
   ],
   "/weibo/oasis/user/:userid": [
     "kt286"

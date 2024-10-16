@@ -9307,7 +9307,8 @@
         ],
         "name": "UP 主投稿",
         "maintainers": [
-          "DIYgod"
+          "DIYgod",
+          "Konano"
         ],
         "location": "video.ts"
       },
@@ -15207,6 +15208,196 @@
     "name": "中国收入分配研究院",
     "url": "ciidbnu.org"
   },
+  "cisia": {
+    "routes": {
+      "/:id?": {
+        "path": "/:id?",
+        "name": "栏目",
+        "url": "www.cisia.org",
+        "maintainers": [
+          "nczitzk"
+        ],
+        "example": "/cisia/9",
+        "parameters": {
+          "id": "栏目 id，默认为 `9`，即协会动态，可在对应分类页 URL 中找到"
+        },
+        "description": ":::tip\n  若订阅 [市场信息](http://www.cisia.org/site/term/12.html)，网址为 `http://www.cisia.org/site/term/12.html`。截取 `https://www.cisia.org/site/term/` 到末尾 `.html` 的部分 `12` 作为参数填入，此时路由为 [`/cisia/12`](https://rsshub.app/cisia/12)。\n  :::\n\n  <details>\n    <summary>更多分类</summary>\n\n  #### [分支机构信息](http://www.cisia.org/site/term/14.html)\n\n  | [企业动态](http://www.cisia.org/site/term/17.html) | [产品展示](http://www.cisia.org/site/term/18.html) |\n  | -------------------------------------------------- | -------------------------------------------------- |\n  | [17](https://rsshub.app/cisia/17)                  | [18](https://rsshub.app/cisia/18)                  |\n\n  #### [新闻中心](http://www.cisia.org/site/term/8.html)\n\n  | [协会动态](http://www.cisia.org/site/term/9.html) | [行业新闻](http://www.cisia.org/site/term/10.html) | [通知公告](http://www.cisia.org/site/term/11.html) | [市场信息](http://www.cisia.org/site/term/12.html) |\n  | ------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------- |\n  | [9](https://rsshub.app/cisia/9)                   | [10](https://rsshub.app/cisia/10)                  | [11](https://rsshub.app/cisia/11)                  | [12](https://rsshub.app/cisia/12)                  |\n\n  #### [政策法规](http://www.cisia.org/site/term/19.html)\n\n  | [宏观聚焦](http://www.cisia.org/site/term/20.html) | [技术园区](http://www.cisia.org/site/term/396.html) |\n  | -------------------------------------------------- | --------------------------------------------------- |\n  | [20](https://rsshub.app/cisia/20)                  | [396](https://rsshub.app/cisia/396)                 |\n\n  #### [合作交流](http://www.cisia.org/site/term/22.html)\n\n  | [国际交流](http://www.cisia.org/site/term/23.html) | [行业交流](http://www.cisia.org/site/term/24.html) | [企业调研](http://www.cisia.org/site/term/25.html) | [会展信息](http://www.cisia.org/site/term/84.html) | [宣传专题](http://www.cisia.org/site/term/430.html) |\n  | -------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------- | --------------------------------------------------- |\n  | [23](https://rsshub.app/cisia/23)                  | [24](https://rsshub.app/cisia/24)                  | [25](https://rsshub.app/cisia/25)                  | [84](https://rsshub.app/cisia/84)                  | [430](https://rsshub.app/cisia/430)                 |\n\n  #### [党建工作](http://www.cisia.org/site/term/26.html)\n\n  | [党委文件](http://www.cisia.org/site/term/27.html) | [学习园地](http://www.cisia.org/site/term/28.html) | [两会专题](http://www.cisia.org/site/term/443.html) |\n  | -------------------------------------------------- | -------------------------------------------------- | --------------------------------------------------- |\n  | [27](https://rsshub.app/cisia/27)                  | [28](https://rsshub.app/cisia/28)                  | [443](https://rsshub.app/cisia/443)                 |\n\n  #### [网上服务平台](http://www.cisia.org/site/term/29.html)\n\n  | [前沿科技](http://www.cisia.org/site/term/31.html) | [新材料新技术](http://www.cisia.org/site/term/133.html) | [文件共享](http://www.cisia.org/site/term/30.html) |\n  | -------------------------------------------------- | ------------------------------------------------------- | -------------------------------------------------- |\n  | [31](https://rsshub.app/cisia/31)                  | [133](https://rsshub.app/cisia/133)                     | [30](https://rsshub.app/cisia/30)                  |\n\n  #### [会员社区](http://www.cisia.org/site/term/34.html)\n\n  | [会员分布](http://www.cisia.org/site/term/35.html) | [会员风采](http://www.cisia.org/site/term/68.html) |\n  | -------------------------------------------------- | -------------------------------------------------- |\n  | [35](https://rsshub.app/cisia/35)                  | [68](https://rsshub.app/cisia/68)                  |\n\n  </details>\n    ",
+        "categories": [
+          "government"
+        ],
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportRadar": true,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "www.cisia.org/site/term/:id"
+            ]
+          },
+          {
+            "title": "分支机构信息 - 企业动态",
+            "source": [
+              "www.cisia.org/site/term/17.html"
+            ],
+            "target": "/17"
+          },
+          {
+            "title": "分支机构信息 - 产品展示",
+            "source": [
+              "www.cisia.org/site/term/18.html"
+            ],
+            "target": "/18"
+          },
+          {
+            "title": "新闻中心 - 协会动态",
+            "source": [
+              "www.cisia.org/site/term/9.html"
+            ],
+            "target": "/9"
+          },
+          {
+            "title": "新闻中心 - 行业新闻",
+            "source": [
+              "www.cisia.org/site/term/10.html"
+            ],
+            "target": "/10"
+          },
+          {
+            "title": "新闻中心 - 通知公告",
+            "source": [
+              "www.cisia.org/site/term/11.html"
+            ],
+            "target": "/11"
+          },
+          {
+            "title": "新闻中心 - 市场信息",
+            "source": [
+              "www.cisia.org/site/term/12.html"
+            ],
+            "target": "/12"
+          },
+          {
+            "title": "政策法规 - 宏观聚焦",
+            "source": [
+              "www.cisia.org/site/term/20.html"
+            ],
+            "target": "/20"
+          },
+          {
+            "title": "政策法规 - 技术园区",
+            "source": [
+              "www.cisia.org/site/term/396.html"
+            ],
+            "target": "/396"
+          },
+          {
+            "title": "合作交流 - 国际交流",
+            "source": [
+              "www.cisia.org/site/term/23.html"
+            ],
+            "target": "/23"
+          },
+          {
+            "title": "合作交流 - 行业交流",
+            "source": [
+              "www.cisia.org/site/term/24.html"
+            ],
+            "target": "/24"
+          },
+          {
+            "title": "合作交流 - 企业调研",
+            "source": [
+              "www.cisia.org/site/term/25.html"
+            ],
+            "target": "/25"
+          },
+          {
+            "title": "合作交流 - 会展信息",
+            "source": [
+              "www.cisia.org/site/term/84.html"
+            ],
+            "target": "/84"
+          },
+          {
+            "title": "合作交流 - 宣传专题",
+            "source": [
+              "www.cisia.org/site/term/430.html"
+            ],
+            "target": "/430"
+          },
+          {
+            "title": "党建工作 - 党委文件",
+            "source": [
+              "www.cisia.org/site/term/27.html"
+            ],
+            "target": "/27"
+          },
+          {
+            "title": "党建工作 - 学习园地",
+            "source": [
+              "www.cisia.org/site/term/28.html"
+            ],
+            "target": "/28"
+          },
+          {
+            "title": "党建工作 - 两会专题",
+            "source": [
+              "www.cisia.org/site/term/443.html"
+            ],
+            "target": "/443"
+          },
+          {
+            "title": "网上服务平台 - 前沿科技",
+            "source": [
+              "www.cisia.org/site/term/31.html"
+            ],
+            "target": "/31"
+          },
+          {
+            "title": "网上服务平台 - 新材料新技术",
+            "source": [
+              "www.cisia.org/site/term/133.html"
+            ],
+            "target": "/133"
+          },
+          {
+            "title": "网上服务平台 - 文件共享",
+            "source": [
+              "www.cisia.org/site/term/30.html"
+            ],
+            "target": "/30"
+          },
+          {
+            "title": "会员社区 - 会员分布",
+            "source": [
+              "www.cisia.org/site/term/35.html"
+            ],
+            "target": "/35"
+          },
+          {
+            "title": "会员社区 - 会员风采",
+            "source": [
+              "www.cisia.org/site/term/68.html"
+            ],
+            "target": "/68"
+          }
+        ],
+        "location": "index.ts"
+      }
+    },
+    "name": "中国无机盐工业协会",
+    "url": "www.cisia.org",
+    "categories": [
+      "government"
+    ],
+    "description": ""
+  },
   "civitai": {
     "routes": {
       "/discussions/:modelId": {
@@ -15313,6 +15504,58 @@
     },
     "name": "刺猬猫",
     "url": "wap.ciweimao.com"
+  },
+  "cjlu": {
+    "routes": {
+      "/yjsy/:cate": {
+        "path": "/yjsy/:cate",
+        "categories": [
+          "university"
+        ],
+        "example": "/cjlu/yjsy/yjstz",
+        "parameters": {
+          "cate": "订阅的类型，支持 yjstz（研究生通知）和 jstz（教师通知）"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportRadar": true,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "title": "研究生通知",
+            "source": [
+              "yjsy.cjlu.edu.cn/index/yjstz/:suffix",
+              "yjsy.cjlu.edu.cn/index/yjstz.htm"
+            ],
+            "target": "/yjsy/yjstz"
+          },
+          {
+            "title": "教师通知",
+            "source": [
+              "yjsy.cjlu.edu.cn/index/jstz/:suffix",
+              "yjsy.cjlu.edu.cn/index/jstz.htm"
+            ],
+            "target": "/yjsy/jstz"
+          }
+        ],
+        "name": "研究生院",
+        "maintainers": [
+          "chrisis58"
+        ],
+        "description": "| 研究生通知 | 教师通知 |\n  | -------- | -------- |\n  | yjstz    | jstz     |",
+        "location": "yjsy/index.ts"
+      }
+    },
+    "name": "China Jiliang University",
+    "url": "www.cjlu.edu.cn",
+    "zh": {
+      "name": "中国计量大学"
+    }
   },
   "clickme": {
     "routes": {
@@ -18346,14 +18589,15 @@
         "features": {
           "requireConfig": false,
           "requirePuppeteer": false,
-          "antiCrawler": false,
+          "antiCrawler": true,
           "supportBT": false,
           "supportPodcast": false,
           "supportScihub": false
         },
         "name": "票务更新",
         "maintainers": [
-          "hoilc"
+          "hoilc",
+          "Konano"
         ],
         "description": "城市、分类名、子分类名，请参见[大麦网搜索页面](https://search.damai.cn/search.htm)",
         "location": "activity.ts"
@@ -34080,6 +34324,76 @@
     "name": "Hex-Rays",
     "url": "hex-rays.com"
   },
+  "hfut": {
+    "routes": {
+      "/hf/notice/:type?": {
+        "path": "/hf/notice/:type?",
+        "categories": [
+          "university"
+        ],
+        "example": "/hfut/hf/notice/tzgg",
+        "parameters": {
+          "type": "分类，见下表（默认为 `tzgg`)"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportRadar": true,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "news.hfut.edu.cn"
+            ]
+          }
+        ],
+        "name": "合肥校区通知",
+        "maintainers": [
+          "batemax"
+        ],
+        "description": "| 通知公告(https://news.hfut.edu.cn/tzgg2.htm) | 教学科研(https://news.hfut.edu.cn/tzgg2/jxky.htm) | 其他通知(https://news.hfut.edu.cn/tzgg2/qttz.htm) |\n  | ------------ | -------------- | ------------------ |\n  | tzgg         | jxky            | qttz              |",
+        "location": "hf/notice.ts"
+      },
+      "/xc/notice/:type?": {
+        "path": "/xc/notice/:type?",
+        "categories": [
+          "university"
+        ],
+        "example": "/hfut/xc/notice/tzgg",
+        "parameters": {
+          "type": "分类，见下表（默认为 `tzgg`)"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportRadar": true,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "xc.hfut.edu.cn"
+            ]
+          }
+        ],
+        "name": "宣城校区通知",
+        "maintainers": [
+          "batemax"
+        ],
+        "description": "| 通知公告(https://xc.hfut.edu.cn/1955/list.htm) | 院系动态-工作通知(https://xc.hfut.edu.cn/gztz/list.htm) |\n  | ------------ | -------------- |\n  | tzgg         | gztz           |",
+        "location": "xc/notice.ts"
+      }
+    },
+    "name": "合肥工业大学",
+    "url": "hfut.edu.cn"
+  },
   "hicairo": {
     "routes": {
       "/": {
@@ -34669,6 +34983,49 @@
     },
     "name": "HKJunkCall 資訊中心",
     "url": "hkjunkcall.com"
+  },
+  "hko": {
+    "routes": {
+      "/earthquake": {
+        "path": "/earthquake",
+        "name": "全球地震資訊網",
+        "maintainers": [
+          "after9"
+        ],
+        "example": "/hko/earthquake",
+        "categories": [
+          "forecast"
+        ],
+        "description": "来自香港天文台的全球5级以上地震记录",
+        "location": "earthquake.ts"
+      },
+      "/weather": {
+        "path": "/weather",
+        "radar": [
+          {
+            "source": [
+              "www.weather.gov.hk/en/wxinfo/currwx/current.htm"
+            ]
+          }
+        ],
+        "name": "Current Weather Report",
+        "example": "/hko/weather",
+        "maintainers": [
+          "calpa"
+        ],
+        "categories": [
+          "forecast"
+        ],
+        "url": "www.weather.gov.hk/en/wxinfo/currwx/current.htm",
+        "location": "weather.ts"
+      }
+    },
+    "name": "Hong Kong Observatory",
+    "url": "www.hko.gov.hk",
+    "categories": [
+      "forecast"
+    ],
+    "description": "来自香港天文台的全球地震记录"
   },
   "hljucm": {
     "routes": {
@@ -57247,14 +57604,15 @@
   },
   "picuki": {
     "routes": {
-      "/profile/:id/:functionalFlag?": {
-        "path": "/profile/:id/:functionalFlag?",
+      "/profile/:id/:type?/:functionalFlag?": {
+        "path": "/profile/:id/:type?/:functionalFlag?",
         "categories": [
           "social-media"
         ],
         "example": "/picuki/profile/stefaniejoosten",
         "parameters": {
           "id": "Instagram user id",
+          "type": "Type of profile page (profile or tagged)",
           "functionalFlag": "functional flag, see the table below\n| functionalFlag | Video embedding                         | Fetching Instagram Stories |\n| -------------- | --------------------------------------- | -------------------------- |\n| 0              | off, only show video poster as an image | off                        |\n| 1 (default)    | on                                      | off                        |\n| 10             | on                                      | on                         |\n"
         },
         "features": {
@@ -57271,13 +57629,20 @@
               "www.picuki.com/profile/:id"
             ],
             "target": "/profile/:id"
+          },
+          {
+            "source": [
+              "www.picuki.com/profile-tagged/:id"
+            ],
+            "target": "/profile/:id/tagged"
           }
         ],
         "name": "User Profile - Picuki",
         "maintainers": [
           "hoilc",
           "Rongronggg9",
-          "devinmugen"
+          "devinmugen",
+          "NekoAria"
         ],
         "description": "\n  :::warning\n  Instagram Stories do not have a reliable guid. It is possible that your RSS reader show the same story more than once.\n  Though, every Story expires after 24 hours, so it may be not so serious.\n  :::",
         "location": "profile.ts"
@@ -61917,7 +62282,7 @@
           "ttttmr",
           "hyoban"
         ],
-        "description": "Pass URL and transformation rules to convert HTML/JSON into RSS.\n\nSpecify options (in the format of query string) in parameter `routeParams` parameter to extract data from HTML.\n\n| Key                 | Meaning                                                                                                       | Accepted Values | Default                  |\n| ------------------- | ------------------------------------------------------------------------------------------------------------- | --------------- | ------------------------ |\n| `title`           | The title of the RSS                                                                                          | `string`      | Extract from `<title>` |\n| `item`            | The HTML elements as `item` using CSS selector                                                              | `string`      | html                     |\n| `itemTitle`       | The HTML elements as `title` in `item` using CSS selector                                                 | `string`      | `item` element         |\n| `itemTitleAttr`   | The attributes of `title` element as title                                                                  | `string`      | Element text             |\n| `itemLink`        | The HTML elements as `link` in `item` using CSS selector                                                  | `string`      | `item` element         |\n| `itemLinkAttr`    | The attributes of `link` element as link                                                                    | `string`      | `href`                 |\n| `itemDesc`        | The HTML elements as `descrption` in `item` using CSS selector                                            | `string`      | `item` element         |\n| `itemDescAttr`    | The attributes of `descrption` element as description                                                       | `string`      | Element html             |\n| `itemPubDate`     | The HTML elements as `pubDate` in `item` using CSS selector                                               | `string`      | `item` element         |\n| `itemPubDateAttr` | The attributes of `pubDate` element as pubDate                                                              | `string`      | Element html             |\n| `itemContent`     | The HTML elements as `description` in `item` using CSS selector ( in `itemLink` page for full content ) | `string`      |                          |\n\n  Parameters parsing in the above example:\n\n  | Parameter     | Value                                     |\n  | ------------- | ----------------------------------------- |\n  | `url`         | `https://wechat2rss.xlab.app/posts/list/` |\n  | `routeParams` | `item=div[class='post-content'] p a`      |\n\n  Parsing of `routeParams` parameter:\n\n  | Parameter | Value                           |\n  | --------- | ------------------------------- |\n  | `item`    | `div[class='post-content'] p a` |",
+        "description": "Pass URL and transformation rules to convert HTML/JSON into RSS.\n\nSpecify options (in the format of query string) in parameter `routeParams` parameter to extract data from HTML.\n\n| Key                 | Meaning                                                                                                       | Accepted Values | Default                  |\n| ------------------- | ------------------------------------------------------------------------------------------------------------- | --------------- | ------------------------ |\n| `title`           | The title of the RSS                                                                                          | `string`      | Extract from `<title>` |\n| `item`            | The HTML elements as `item` using CSS selector                                                              | `string`      | html                     |\n| `itemTitle`       | The HTML elements as `title` in `item` using CSS selector                                                 | `string`      | `item` element         |\n| `itemTitleAttr`   | The attributes of `title` element as title                                                                  | `string`      | Element text             |\n| `itemLink`        | The HTML elements as `link` in `item` using CSS selector                                                  | `string`      | `item` element         |\n| `itemLinkAttr`    | The attributes of `link` element as link                                                                    | `string`      | `href`                 |\n| `itemDesc`        | The HTML elements as `descrption` in `item` using CSS selector                                            | `string`      | `item` element         |\n| `itemDescAttr`    | The attributes of `descrption` element as description                                                       | `string`      | Element html             |\n| `itemPubDate`     | The HTML elements as `pubDate` in `item` using CSS selector                                               | `string`      | `item` element         |\n| `itemPubDateAttr` | The attributes of `pubDate` element as pubDate                                                              | `string`      | Element html             |\n| `itemContent`     | The HTML elements as `description` in `item` using CSS selector ( in `itemLink` page for full content ) | `string`      |                          |\n| `encoding`        | The encoding of the HTML content                                                                              | `string`      | utf-8                    |\n\n  Parameters parsing in the above example:\n\n  | Parameter     | Value                                     |\n  | ------------- | ----------------------------------------- |\n  | `url`         | `https://wechat2rss.xlab.app/posts/list/` |\n  | `routeParams` | `item=div[class='post-content'] p a`      |\n\n  Parsing of `routeParams` parameter:\n\n  | Parameter | Value                           |\n  | --------- | ------------------------------- |\n  | `item`    | `div[class='post-content'] p a` |",
         "location": "transform/html.ts"
       },
       "/transform/json/:url/:routeParams": {
@@ -66134,7 +66499,7 @@
         "categories": [
           "picture"
         ],
-        "example": "/following_creators/@brm2_1925",
+        "example": "/skeb/following_creators/@brm2_1925",
         "parameters": {
           "username": "Skeb Username with @"
         },
@@ -66173,7 +66538,7 @@
         "categories": [
           "picture"
         ],
-        "example": "/following_works/@brm2_1925",
+        "example": "/skeb/following_works/@brm2_1925",
         "parameters": {
           "username": "Skeb Username with @"
         },
@@ -66212,7 +66577,7 @@
         "categories": [
           "picture"
         ],
-        "example": "/friend_works/@brm2_1925",
+        "example": "/skeb/friend_works/@brm2_1925",
         "parameters": {
           "username": "Skeb Username with @"
         },
@@ -66251,9 +66616,9 @@
         "categories": [
           "picture"
         ],
-        "example": "/new_art_works",
+        "example": "/skeb/new_art_works",
         "parameters": {
-          "category": "Category, the div id of the section title on the homepage. Default is new_art_works"
+          "category": "Category, the div id of the section title on the homepage."
         },
         "features": {
           "requireConfig": false,
@@ -66346,7 +66711,7 @@
         "categories": [
           "picture"
         ],
-        "example": "/search/初音ミク",
+        "example": "/skeb/search/初音ミク",
         "parameters": {
           "keyword": "Search keyword"
         },
@@ -66370,7 +66735,7 @@
         "categories": [
           "picture"
         ],
-        "example": "/works/@brm2_1925",
+        "example": "/skeb/works/@brm2_1925",
         "parameters": {
           "username": "Skeb Username with @"
         },
@@ -78391,7 +78756,8 @@
         "maintainers": [
           "DIYgod",
           "iplusx",
-          "Rongronggg9"
+          "Rongronggg9",
+          "Konano"
         ],
         "description": ":::warning\n  部分博主仅登录可见，未提供 Cookie 的情况下不支持订阅，可以通过打开 `https://m.weibo.cn/u/:uid` 验证\n  :::",
         "location": "user.ts"
