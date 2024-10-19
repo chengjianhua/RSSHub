@@ -2693,6 +2693,14 @@
           "/hub/:topic"
         ],
         "target": "/apnews/topics/:topic"
+      },
+      {
+        "title": "Topics",
+        "docs": "https://docs.rsshub.app/routes/traditional-media",
+        "source": [
+          "/hub/:topic"
+        ],
+        "target": "/apnews/topics/:topic"
       }
     ]
   },
@@ -6192,7 +6200,8 @@
         "title": "期刊",
         "docs": "https://docs.rsshub.app/routes/journal",
         "source": [
-          "/knavi/journals/:name/detail"
+          "/knavi/journals/:name/detail",
+          "/kns/rss.aspx?Journal=:name&Virtual=knavi"
         ],
         "target": "/cnki/journals/:name"
       }
@@ -29147,6 +29156,26 @@
           "/:type/list.htm"
         ],
         "target": "/zjut/news/:type"
+      }
+    ],
+    "cs": [
+      {
+        "title": "浙江工业大学计算机科学与技术学院、软件学院",
+        "docs": "https://docs.rsshub.app/routes/university",
+        "source": [
+          "/jsp/newsclass.jsp?wcId=:type"
+        ],
+        "target": "/zjut/cs/:type"
+      }
+    ],
+    "www.jwc": [
+      {
+        "title": "浙江工业大学教务处",
+        "docs": "https://docs.rsshub.app/routes/university",
+        "source": [
+          "/:type/list.htm"
+        ],
+        "target": "/zjut/jwc/:type"
       }
     ]
   },
