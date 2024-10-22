@@ -376,6 +376,9 @@
   "/ajmide/:id": [
     "Fatpandac"
   ],
+  "/alicesoft/information/:category?/:game?": [
+    "keocheung"
+  ],
   "/alipan/files/:share_id/:parent_file_id?": [
     "DIYgod"
   ],
@@ -1457,9 +1460,6 @@
   "/coolapk/tuwen/:type?": [
     "xizeyoupan"
   ],
-  "/coolapk/tuwen-xinxian": [
-    "xizeyoupan"
-  ],
   "/coolapk/user/:uid/dynamic": [
     "xizeyoupan"
   ],
@@ -1892,7 +1892,9 @@
     "numm233",
     "nczitzk"
   ],
-  "/douban/people/:userid/status/:routeParams?": [],
+  "/douban/people/:userid/status/:routeParams?": [
+    "alfredcai"
+  ],
   "/douban/people/:userid/wish/:routeParams?": [
     "exherb"
   ],
@@ -2623,7 +2625,7 @@
   "/gov/immiau/news": [
     "liu233w"
   ],
-  "/gov/jgjcndrc/:id?": [
+  "/gov/jgjcndrc/:columnId?/:subColumnId?": [
     "nczitzk"
   ],
   "/gov/jiangsu/wlt/:page?": [
@@ -2736,6 +2738,9 @@
   ],
   "/gov/pbc/zcyj": [
     "Fatpandac"
+  ],
+  "/gov/pudong/zwgk": [
+    "himingway"
   ],
   "/gov/safe/business/:site?": [
     "nczitzk"
@@ -3498,7 +3503,11 @@
   "/iwara/subscriptions": [
     "FeCCC"
   ],
-  "/ixigua/user/video/:uid/:disableEmbed?": [],
+  "/ixigua/user/video/:uid/:disableEmbed?": [
+    "FlashWingShadow",
+    "Fatpandac",
+    "pseudoyu"
+  ],
   "/j-test/news": [
     "kuhahku"
   ],
@@ -4200,8 +4209,9 @@
   "/misskey/notes/featured/:site": [
     "Misaka13514"
   ],
-  "/misskey/users/notes/:username": [
-    "siygle"
+  "/misskey/users/notes/:username/:routeParams?": [
+    "siygle",
+    "SnowAgar25"
   ],
   "/misskon/posts/:routeParams?": [
     "Urabartin"
@@ -6144,6 +6154,9 @@
   "/swpu/scs/:code": [
     "CYTMWIA"
   ],
+  "/sycl/:feed?": [
+    "mocusez"
+  ],
   "/syosetu/chapter/:id": [
     "huangliangshusheng"
   ],
@@ -6449,6 +6462,9 @@
   ],
   "/tju/yzb/:type?": [
     "SuperPung"
+  ],
+  "/tkww/:column{.+}?": [
+    "quiniapiezoelectricity"
   ],
   "/tokeninsight/blog/:lang?": [
     "fuergaosi233"

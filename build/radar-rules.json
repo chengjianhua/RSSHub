@@ -2507,6 +2507,21 @@
       }
     ]
   },
+  "alicesoft.com": {
+    "_name": "ALICESOFT",
+    "www": [
+      {
+        "title": "ニュース",
+        "docs": "https://docs.rsshub.app/routes/game",
+        "source": [
+          "/information",
+          "/information/:category",
+          "/information/:category/:game"
+        ],
+        "target": "/alicesoft/information/:category/:game"
+      }
+    ]
+  },
   "alipan.com": {
     "_name": "阿里云盘",
     "www": [
@@ -6200,8 +6215,7 @@
         "title": "期刊",
         "docs": "https://docs.rsshub.app/routes/journal",
         "source": [
-          "/knavi/journals/:name/detail",
-          "/kns/rss.aspx?Journal=:name&Virtual=knavi"
+          "/knavi/journals/:name/detail"
         ],
         "target": "/cnki/journals/:name"
       }
@@ -8750,7 +8764,7 @@
     "_name": "GameApps.hk 香港手机游戏网",
     ".": [
       {
-        "title": "Unknown",
+        "title": "最新消息",
         "docs": "https://docs.rsshub.app/routes/other",
         "source": [
           "/"
@@ -10227,6 +10241,19 @@
       }
     ]
   },
+  "jgjcndrc.org.cn": {
+    "_name": "上海市人民政府",
+    "www": [
+      {
+        "title": "中华人民共和国国家发展和改革委员会价格监测中心",
+        "docs": "https://docs.rsshub.app/routes/government",
+        "source": [
+          "/list"
+        ],
+        "target": "/gov(_,url)=>{url=new URL(url);const columnId=url.searchParams.get(\"clmId\");const subColumnId=url.searchParams.get(\"sclmId\");return`/jgjcndrc${columnId?`/${columnId}${subColumnId?`/${subColumnId}`:\"\"}`:\"\"}`}"
+      }
+    ]
+  },
   "jiangsu.gov.cn": {
     "_name": "上海市人民政府",
     "wlt": [
@@ -11425,6 +11452,19 @@
           "/redianzhuanti/118742/4122386/4122510/index.html"
         ],
         "target": "/gov/pbc/zcyj"
+      }
+    ]
+  },
+  "pudong.gov.cn": {
+    "_name": "上海市人民政府",
+    "www": [
+      {
+        "title": "政务公开-浦东新区",
+        "docs": "https://docs.rsshub.app/routes/government",
+        "source": [
+          "/zwgk/zxxxgk/index.html"
+        ],
+        "target": "/gov/pudong/zwgk"
       }
     ]
   },
@@ -18817,6 +18857,27 @@
           "/"
         ],
         "target": "/minecraft/version/:versionType?/:linkType?"
+      }
+    ]
+  },
+  "mingpao.com": {
+    "_name": "明報",
+    "news": [
+      {
+        "title": "即時新聞",
+        "docs": "https://docs.rsshub.app/routes/other",
+        "source": [
+          "/ins/:categoryName/section/:date/:category"
+        ],
+        "target": "/mingpao/mingpao/ins/:category"
+      },
+      {
+        "title": "每日明報",
+        "docs": "https://docs.rsshub.app/routes/other",
+        "source": [
+          "/pns/:categoryName/section/:date/:category"
+        ],
+        "target": "/mingpao/mingpao/pns/:category"
       }
     ]
   },
@@ -26452,6 +26513,19 @@
           "/v3/program/:programId"
         ],
         "target": "/tingtingfm/program/:programId"
+      }
+    ]
+  },
+  "tkww.hk": {
+    "_name": "大公文匯網",
+    "www": [
+      {
+        "title": "新聞",
+        "docs": "https://docs.rsshub.app/routes/traditional-media",
+        "source": [
+          "/:column"
+        ],
+        "target": "/tkww/:column"
       }
     ]
   },
