@@ -595,37 +595,37 @@
   "/bandcamp/weekly": [
     "nczitzk"
   ],
-  "/bangumi.moe/*": [
-    "nczitzk"
-  ],
-  "/bangumi.online/": [
+  "/bangumi/moe/*": [],
+  "/bangumi/online": [
     "devinmugen"
   ],
-  "/bangumi.tv/calendar/today": [
+  "/bangumi/tv/calendar/today": [
     "magic-akari"
   ],
-  "/bangumi.tv/topic/:id": [
+  "/bangumi/tv/topic/:id": [
     "ylc395"
   ],
-  "/bangumi.tv/group/:id": [
+  "/bangumi/tv/group/:id": [
     "SettingDust"
   ],
-  "/bangumi.tv/:type/followrank": [
+  "/bangumi/:type/followrank": [
     "honue",
     "zhoukuncheng",
     "NekoAria"
   ],
-  "/bangumi.tv/person/:id": [
+  "/bangumi/tv/person/:id": [
     "ylc395"
   ],
-  "/bangumi.tv/subject/:id/:type?/:showOriginalName?": [
+  "/bangumi/tv/subject/:id/:type?/:showOriginalName?": [
     "JimenezLi"
   ],
-  "/bangumi.tv/user/blog/:id": [
+  "/bangumi/tv/user/blog/:id": [
     "nczitzk"
   ],
-  "/bangumi.tv/user/collections/:id/:subjectType/:type": [
-    "youyou-sudo",
+  "/bangumi/tv/user/collections/:id/:subjectType/:type": [
+    "youyou-sudo"
+  ],
+  "/bangumi/tv/user/wish/:id": [
     "honue"
   ],
   "/baozimh/comic/:name": [
@@ -953,7 +953,7 @@
   "/bsky/keyword/:keyword": [
     "untitaker"
   ],
-  "/bsky/profile/:handle/:routeParams?": [
+  "/bsky/profile/:handle": [
     "TonyRL"
   ],
   "/bt0/mv/:number/:domain?": [
@@ -1954,9 +1954,6 @@
   "/dx2025/:type?/:category?": [
     "nczitzk"
   ],
-  "/dxy/bbs/board/:boardId": [
-    "TonyRL"
-  ],
   "/dxy/bbs/special/:specialId": [
     "TonyRL"
   ],
@@ -2102,9 +2099,7 @@
   "/fansly/tag/:tag": [
     "TonyRL"
   ],
-  "/fantia/search/:type?/:caty?/:period?/:order?/:rating?/:keyword?": [
-    "nczitzk"
-  ],
+  "/fantia/search/:type?/:caty?/:period?/:order?/:rating?/:keyword?": [],
   "/fantia/user/:id": [
     "nczitzk"
   ],
@@ -2375,9 +2370,7 @@
   "/gelonghui/home/:tag?": [
     "TonyRL"
   ],
-  "/gelonghui/hot-article/:type?": [
-    "nczitzk"
-  ],
+  "/gelonghui/hot-article/:type?": [],
   "/gelonghui/keyword/:keyword": [
     "nczitzk"
   ],
@@ -3426,9 +3419,7 @@
     "ranpox",
     "xyqfer"
   ],
-  "/inoreader/html_clip/:user/:tag": [
-    "EthanWng97"
-  ],
+  "/inoreader/html_clip/:user/:tag": [],
   "/inoreader/rss/:user/:tag": [
     "EthanWng97"
   ],
@@ -4861,12 +4852,6 @@
   "/openai/research": [
     "yuguorui"
   ],
-  "/openrice/:lang/hongkong/offers": [
-    "after9"
-  ],
-  "/openrice/:lang/hongkong/promos": [
-    "after9"
-  ],
   "/openwrt/releases/:brand/:model": [],
   "/orcid/:id": [
     "OrangeEd1t"
@@ -4932,9 +4917,7 @@
   "/ouc/yjs": [
     "shengmaosu"
   ],
-  "/oup/journals/:name": [
-    "Fatpandac"
-  ],
+  "/oup/journals/:name": [],
   "/outagereport/:name/:count?": [
     "cxumol",
     "nczitzk"
@@ -5449,8 +5432,7 @@
     "nczitzk"
   ],
   "/rss3/:account/:network?/:tag?": [
-    "DIYgod",
-    "pseudoyu"
+    "DIYgod"
   ],
   "/rsshub/routes/:lang?": [
     "DIYgod"
@@ -6292,8 +6274,7 @@
   ],
   "/telegram/channel/:username/:routeParams?": [
     "DIYgod",
-    "Rongronggg9",
-    "pseudoyu"
+    "Rongronggg9"
   ],
   "/telegram/stickerpack/:name": [
     "DIYgod"
@@ -7618,9 +7599,6 @@
     "yikZero"
   ],
   "/zjut/jwc/:type": [
-    "zhullyb"
-  ],
-  "/zjut/www/:type": [
     "zhullyb"
   ],
   "/zjuvag/blog": [
