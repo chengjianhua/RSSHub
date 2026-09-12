@@ -1,29 +1,25 @@
-import ofetch from '@/utils/ofetch';
-import cache from '@/utils/cache';
 import { config } from '@/config';
-import { getAcwScV2ByArg1 } from '@/routes/5eplay/utils';
+import cache from '@/utils/cache';
+import playwright from '@/utils/playwright';
+import { getCookies } from '@/utils/playwright-utils';
 
 export const parseToken = (link: string) =>
     cache.tryGet(
         'xueqiu:token',
         async () => {
-            const r = await ofetch(link);
-
-            let acw_sc__v2 = '';
-            const matches = r.match(/var arg1='(.*?)';/);
-            if (matches) {
-                acw_sc__v2 = getAcwScV2ByArg1(matches[1]);
-            }
-            const acw_sc__v2_cookie = `acw_sc__v2=${acw_sc__v2}`;
-            const res = await ofetch.raw(link, {
-                headers: {
-                    Cookie: acw_sc__v2_cookie,
-                },
+            const context = await playwright();
+            const page = await context.newPage();
+            await page.route('**/*', (route) => {
+                const request = route.request();
+                const type = request.resourceType();
+                type === 'document' || type === 'script' ? route.continue() : route.abort();
             });
-            const cookieArray = res.headers.getSetCookie();
-            const xq_a_token_cookie = cookieArray.find((c) => c.startsWith('xq_a_token='));
-
-            return `${acw_sc__v2_cookie}; ${xq_a_token_cookie}`;
+            await page.goto(link, {
+                waitUntil: 'domcontentloaded',
+            });
+            await page.evaluate(() => document.documentElement.getHTML());
+            const cookies = await getCookies(page);
+            return cookies;
         },
         config.cache.routeExpire,
         false
