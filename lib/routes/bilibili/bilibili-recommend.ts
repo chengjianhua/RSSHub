@@ -1,12 +1,14 @@
-import { Route } from '@/types';
+import type { Route } from '@/types';
 import got from '@/utils/got';
+import { parseDate } from '@/utils/parse-date';
+
 import utils from './utils';
 
 export const route: Route = {
-    path: '/precious/:disableEmbed?',
+    path: '/precious/:embed?',
     categories: ['social-media'],
     example: '/bilibili/precious',
-    parameters: { disableEmbed: '默认为开启内嵌视频, 任意值为关闭' },
+    parameters: { embed: '默认为开启内嵌视频, 任意值为关闭' },
     features: {
         requireConfig: false,
         requirePuppeteer: false,
@@ -21,7 +23,7 @@ export const route: Route = {
 };
 
 async function handler(ctx) {
-    const disableEmbed = ctx.req.param('disableEmbed');
+    const embed = !ctx.req.param('embed');
     const response = await got({
         method: 'get',
         url: 'https://api.bilibili.com/x/web-interface/popular/precious',
@@ -35,8 +37,9 @@ async function handler(ctx) {
         link: 'https://www.bilibili.com/v/popular/history',
         item: data.map((item) => ({
             title: item.title,
-            description: `${item.desc || item.title}${disableEmbed ? '' : `<br><br>${utils.iframe(item.aid, null, item.bvid)}`}<br><img src="${item.pic}">`,
+            description: utils.renderUGCDescription(embed, item.pic, item.desc || item.title, item.aid, undefined, item.bvid),
             link: item.bvid ? `https://www.bilibili.com/video/${item.bvid}` : `https://www.bilibili.com/video/av${item.aid}`,
+            pubDate: item.pubdate ? parseDate(item.pubdate, 'X') : undefined,
         })),
     };
 }
